@@ -53,6 +53,23 @@
           "fullName": "dfdf"
         }
       ]
+    },
+    {
+      "id": "os45jgm",
+      "title": "проверка с инитом",
+      "date": "2025-04-25",
+      "time": "16:12",
+      "guests": [
+        {
+          "fullName": "1"
+        },
+        {
+          "fullName": "2"
+        },
+        {
+          "fullName": "3"
+        }
+      ]
     }
   ]
 }
