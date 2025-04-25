@@ -1,0 +1,24 @@
+<main>
+    <section class="event-list-section">
+      <header>
+        <h1>СОЗДАТЬ МЕРОПРИЯТИЕ</h1>
+      </header>
+  
+      <form (ngSubmit)="nextStep()" #stepOneForm="ngForm" class="events-container">
+        <p class="inter-data-event">ВВЕДИТЕ ДАННЫЕ О МЕРОПРИЯТИИ:</p>
+        <input type="text" [(ngModel)]="title" name="title" placeholder="Название мероприятия" required>
+        <input type="date" [(ngModel)]="date" name="date" placeholder="Введите дату проведения мероприятия" required />
+        <input type="time" [(ngModel)]="time" name="time" placeholder="Введите время проведения мероприятия" required />
+        <section class="btn-continue">
+          <button type="submit" [disabled]="!title.trim() || !date || !time.trim()">
+            ПРОДОЛЖИТЬ
+          </button>
+        </section>
+      </form>
+
+      <footer> 
+        <button class="go-to-step1" [class.active]="activeStep === 1">1</button>
+        <button class="go-to-step2" [class.active]="activeStep === 2" [disabled]="!title.trim() || !date || !time.trim()" (click)="nextStep()">2</button>
+      </footer>
+    </section>
+  </main>
