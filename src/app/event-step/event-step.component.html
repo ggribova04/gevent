@@ -1,0 +1,29 @@
+@switch (currentStep) {
+    @case (1) {
+      <app-create-event-step1 
+        [activeStep]="currentStep"
+        (stepCompleted)="handleStepCompleted(2)"
+        (goToStep)="handleStepNavigation($event)">
+      </app-create-event-step1>
+    }
+    @case (2) {
+      <app-create-event-step2
+        [activeStep]="currentStep"
+        (stepCompleted)="handleStepCompleted(3)"
+        (goToStep)="handleStepNavigation($event)">
+      </app-create-event-step2>
+    }
+    @case (3) {
+      <app-create-event-step3
+        [activeStep]="currentStep"
+        (stepCompleted)="handleStepCompleted(4)"
+        (goToStep)="handleStepNavigation($event)">
+      </app-create-event-step3>
+    }
+    @case (4) {
+      <app-create-event-step4
+        [activeStep]="currentStep"
+        (goToStep)="handleStepNavigation($event)">
+      </app-create-event-step4>
+    }
+  }

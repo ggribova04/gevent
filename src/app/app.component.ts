@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'event-list';
+
 }

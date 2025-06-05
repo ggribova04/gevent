@@ -1,0 +1,94 @@
+<header>
+    <button (click)="goBack()">
+      <img src="../../assets/undo.svg" alt="Назад" />
+    </button>
+
+    <button class="profile-btn" (click)="goUserProfile()">
+      <img src="../../assets/user_profile.svg" alt="Профиль" />
+    </button>
+</header>
+
+<main>
+  <section class="event-list-section">
+    <header>
+      <h1>СОЗДАТЬ МЕРОПРИЯТИЕ</h1>
+    </header>
+
+    <section class="events-container">
+      <p class="introductory-text">ДОБАВЬТЕ ЗАДАЧИ</p>
+
+      <section class="tasks-info-section">
+        <table class="performers-table">
+          <thead>
+            <tr>
+              <th colspan="4" class="table-header">ЗАДАЧИ</th>
+            </tr>
+            <tr class="column-headers">
+              <th>Название задачи</th>
+              <th class="service-name-th">Ответственный</th>
+              <th class="service-name-th">Крайний срок</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks; let i = index" class="performer-row">
+              <td class="task-title">{{task.title}}</td>
+              <td class="performer-info">
+                <span class="performer-name">{{task.employeeFullName}}</span>
+                <span class="performer-login">({{task.login}})</span>
+              </td>
+              <td class="task-deadline">{{task.date | date:'dd.MM.yyyy'}}</td>
+              <td class="status-cell">
+                <span class="status-badge" 
+                      [class.completed]="task.status === 'Выполнено'"
+                      (click)="toggleTaskStatus(i)">
+                  {{task.status}}
+                </span>
+              </td>
+            </tr>
+            <tr *ngIf="tasks.length === 0" class="empty-row">
+              <td colspan="4" class="empty-message">Нет добавленных задач</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="divider-line"></div>
+  
+        <section class="add-task-section">
+          <h2>ДОБАВИТЬ ЗАДАЧУ</h2>
+          
+          <div class="add-task-form">
+            <div class="form-group">
+              <input type="text" [(ngModel)]="newTask.title" placeholder="Введите название задачи">
+            </div>
+            
+            <div class="form-group">
+              <input type="date" [(ngModel)]="newTask.date">
+            </div>
+            
+            <div class="form-group">
+              <input type="text" [(ngModel)]="newTask.login" placeholder="Введите логин сотрудника">
+            </div>
+            
+            <div class="form-group">
+              <textarea [(ngModel)]="newTask.description" placeholder="Введите описание задачи"></textarea>
+            </div>
+            
+            <button class="add-button" (click)="addTask()">Добавить</button>
+          </div>
+        </section>
+      </section>
+      
+      <section class="next-button"> 
+        <button (click)="nextStep()">ПРОДОЛЖИТЬ</button>
+      </section>
+    </section>
+    
+    <footer> 
+      <button class="go-to-step1" [class.active]="activeStep === 1" (click)="navigateTo(1)">1</button>
+      <button class="go-to-step2" [class.active]="activeStep === 2" (click)="navigateTo(2)">2</button>
+      <button class="go-to-step3" [class.active]="activeStep === 3" (click)="navigateTo(3)">3</button>
+      <button class="go-to-step4" [class.active]="activeStep === 4" (click)="navigateTo(4)">4</button>
+    </footer>
+  </section>
+</main>

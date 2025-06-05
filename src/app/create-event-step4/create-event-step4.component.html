@@ -1,0 +1,45 @@
+<header>
+    <button (click)="goBack()">
+      <img src="../../assets/undo.svg" alt="Назад" />
+    </button>
+
+    <button class="profile-btn" (click)="goUserProfile()">
+      <img src="../../assets/user_profile.svg" alt="Профиль" />
+    </button>
+</header>
+
+<main>
+    <section class="event-list-section">
+      <header>
+        <h1>СОЗДАТЬ МЕРОПРИЯТИЕ</h1>
+      </header>
+  
+      <section class="events-container">
+        <p class="introductory-text">ДОБАВЬТЕ ГОСТЕЙ В СПИСОК</p>
+        <table>
+            <thead>ГОСТИ</thead>
+            <tbody>
+              <tr *ngFor="let guest of guests">
+                <td class="guest-info">{{ guest.guestInfo }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <input [(ngModel)]="currentGuest" placeholder="Введите данные гостя" (keydown.enter)="addGuest()" />
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+        <section class="btn-continue">
+          <button (click)="finish()">СОХРАНИТЬ</button>
+        </section>
+      </section>
+      
+      <footer> 
+        <button class="go-to-step1" [class.active]="activeStep === 1" (click)="navigateTo(1)">1</button>
+        <button class="go-to-step2" [class.active]="activeStep === 2" (click)="navigateTo(2)">2</button>
+        <button class="go-to-step3" [class.active]="activeStep === 3" (click)="navigateTo(3)">3</button>
+        <button class="go-to-step4" [class.active]="activeStep === 4" (click)="navigateTo(4)">4</button>
+      </footer>
+    </section>
+  </main>

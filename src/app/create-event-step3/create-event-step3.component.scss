@@ -1,0 +1,369 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+      
+    img {
+      width: 40px;
+      height: 40px;
+      transition: filter 0.3s ease;
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  min-height: auto;
+  box-sizing: border-box;
+  margin-bottom: 70px;
+}
+
+.event-list-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B3B1FCB2;
+  padding: 55px 20px;
+  min-width: 635px;
+  min-height: 740px;
+  border-radius: 15px;
+}
+
+.event-list-section header h1 {
+  color: #000000;
+  font-family: 'Geologica-SemiBold';
+  font-size: 25px;
+  text-align: center;
+}
+  
+.events-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-left: 150px;
+  margin-top: 50px;
+  flex: 1;
+}
+
+.tasks-info-section {
+  background-color: #FFF;
+  width: 100%;
+  max-width: 485px;
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
+
+.divider-line {
+  height: 2px;
+  background-color: #CAC9FD;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.introductory-text {
+  font-family: 'Geologica-SemiBold';
+  font-size: 18px;
+}
+
+.add-task-section h2 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+  color: #000000;
+  font-family: 'Geologica-Regular';
+  margin-bottom: 15px;
+}
+  
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 12px;
+    
+  .form-group {
+    display: flex;
+    flex-direction: column;
+      
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Geologica-Regular';
+      font-size: 14px;
+    }
+      
+    textarea {
+      min-height: 30px;
+      resize: vertical;
+    }
+  }
+    
+  .add-button {
+    padding: 10px 20px;
+    background-color: #6F47B2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Geologica-Regular';
+    font-size: 14px;
+    align-self: center;
+      
+    &:hover {
+      background-color: #573492;
+    }
+  }
+}
+
+.performers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Geologica-Regular';
+  color: #000000;
+    
+  .table-header {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #E5E5FF;
+    font-weight: normal;
+    color: #000000;
+  }
+    
+  .column-headers th {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid #E5E5FF;
+    color: #6F47B2;
+  }
+
+  .service-name-th {
+    border: 1px solid #E5E5FF;
+  }
+    
+  .performer-row {
+    border-top: 1px solid #E5E5FF;
+
+    td {
+      padding: 12px 8px;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+      
+    .task-title {
+      text-align: center;
+    }
+      
+    .performer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+            
+      .performer-name {
+        color: #000000;
+        margin-bottom: 2px;
+      }
+            
+      .performer-login {
+        color: #797979;
+      }
+    }
+      
+    .task-deadline {
+      text-align: center;
+    }
+      
+    .status-cell {
+      text-align: center;
+    }
+  }
+    
+  .empty-row {
+    td {
+      padding: 15px;
+      text-align: center;
+      color: #797979;
+      font-style: 'Geologica-Regular';
+      font-size: 12px;
+    }
+  }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  background-color: #FFE6E6;
+  color: #D32F2F;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+    
+  &.completed {
+    background-color: #E6FFE6;
+    color: #2E7D32;
+  }
+    
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.next-button {
+  display: flex;
+  justify-content: center;
+  margin-left: -140px;
+}
+
+.next-button button {
+  background-color: #6F47B2;
+  color: #FFF;
+  padding: 18px 55px;
+  font-size: 18px;
+  font-family: 'Geologica-Medium';
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #573492;
+  }
+}
+
+@media (max-width: 670px) {
+  header {
+    padding: 0.75rem 1rem;
+
+    button img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .event-list-section {
+    min-width: auto;
+    padding: 40px 40px;
+    min-height: auto;
+    width: 90%;
+    margin: 0 50px;
+  }
+
+  .event-list-section header h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .events-container {
+    margin: 0;
+    align-items: center;
+  }
+
+  .events-container input {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .introductory-text {
+    font-size: 16px;
+  }
+
+  .next-button {
+    display: flex;
+    justify-content: center;
+    margin: 0 0;
+  }
+
+  .next-button button {
+    padding: 14px 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .performers-table {
+    .table-header {
+      padding: 10px 0;
+    }
+
+    .performer-row td {
+      font-size: 11px;
+    }
+
+    .status-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+  }
+
+  .add-task-section {
+    h2 {
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .add-task-form {
+    .add-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .event-list-section {
+    padding: 20px 20px;
+    margin: 10px 20px;
+  }
+
+  .event-list-section header h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .introductory-text {
+    font-size: 14px;
+  }
+
+  .events-container input {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .next-button button {
+    padding: 12px 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .performers-table {
+    .column-headers th {
+      font-size: 11px;
+    }
+
+    .performer-row td {
+      font-size: 10px;
+      padding: 4px 2px;
+    }
+  }
+}

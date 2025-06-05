@@ -1,0 +1,95 @@
+<body>
+    <header>
+        <button class="menu-btn" [class.invisible]="userRole !== 1" (click)="toggleMenu()">
+            <img src="../../assets/menu.svg" alt="Меню" />
+        </button>
+
+        <img class="logo" src="../../assets/logo.svg" alt="Логотип" />
+
+        <button class="profile-btn" (click)="goUserProfile()">
+            <img src="../../assets/user_profile.svg" alt="Профиль" />
+        </button>
+    </header>
+
+    <div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+
+    <aside class="sidebar" [class.sidebar--open]="isMenuOpen" #menuRef>
+        <nav>
+            <ul>
+            <li (click)="goEvents()">СПИСОК<br />МЕРОПРИЯТИЙ</li>
+            <li (click)="createEvent()">СОЗДАТЬ<br />МЕРОПРИЯТИЕ</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="task-list">
+            <h2>СПИСОК ЗАДАЧ</h2>
+            <table class="task-table">
+                <tbody>
+                    <tr *ngFor="let item of items; let i = index">
+                        <!-- Для задач -->
+                        <ng-container *ngIf="isTask(item)">
+                            <td>
+                            <strong>{{ item.title }}</strong><br />
+                            {{ item.date | date: 'dd.MM.yyyy' }}
+                            </td>
+                            <td>{{ item.description }}</td>
+                            <td>
+                            <span class="status-badge"
+                                    [class.completed]="item.status === 'Выполнено'"
+                                    (click)="toggleStatus(i)">
+                                {{ item.status }}
+                            </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Для исполнителей -->
+                        <ng-container *ngIf="!isTask(item)">
+                            <td>
+                            <strong>{{ item.fullName }}</strong><br />
+                            {{ item.dateString }}
+                            </td>
+                            <td>{{ item.specialization }}</td>
+                            <td>
+                            <span class="status-badge"
+                                    [class.completed]="item.status === 'Выполнено'"
+                                    (click)="toggleStatus(i)">
+                                {{ item.status }}
+                            </span>
+                            </td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="calendar">
+            <h2>КАЛЕНДАРЬ</h2>
+
+            <div class="calendar-header">
+                <button (click)="previousMonth()">‹</button>
+                <div class="month-year">{{ getMonthYear() }}</div>
+                <button (click)="nextMonth()">›</button>
+            </div>
+
+            <div class="weekdays">
+                <div *ngFor="let day of ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']" class="weekday">{{ day }}</div>
+            </div>
+
+            <div class="calendar-grid">
+                <div
+                *ngFor="let day of calendarDays"
+                class="calendar-cell"
+                [class.outside]="!day.inMonth"
+                [class.today]="day.isToday"
+                >
+                <span class="date">{{ day.date.getDate() }}</span>
+                <div *ngFor="let event of day.events" class="event">
+                    {{ event.title }}
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>

@@ -1,0 +1,56 @@
+<section class="auth-modal-overlay">
+    <div class="auth-modal">
+      <button class="close-btn" (click)="onClose()">×</button>
+  
+      <div class="tabs">
+        <button [class.active]="mode === 'login'" (click)="switchMode('login')">ВХОД</button>
+        <button [class.active]="mode === 'register'" (click)="switchMode('register')">РЕГИСТРАЦИЯ</button>
+      </div>
+
+      <div class="divider-line"></div>
+  
+      @if (mode === 'login') {
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+          <section class="input-container">
+            <div class="input"><img src="../../assets/icons/fullName.svg" alt="Логин" class="input-icon"><input formControlName="identifier" placeholder="Имя пользователя или email" type="text"></div>
+            <div class="input"><img src="../../assets/icons/password.svg" alt="Пароль" class="input-icon"><input formControlName="password" placeholder="Пароль" type="password"></div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+          </section>  
+            <button type="submit" [disabled]="loginForm.invalid">Войти</button>
+        </form>
+      }
+      
+      @if (mode === 'register') {
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+          <section class="input-container">
+            <div class="input"><img src="../../assets/icons/fullName.svg" alt="ФИО" class="input-icon"><input formControlName="fullName" placeholder="Фамилия Имя Отчество" type="text"></div>
+            <div class="input"><img src="../../assets/icons/userName.svg" alt="Логин" class="input-icon"><input formControlName="userName" placeholder="Имя пользователя" type="text"></div>
+            <div class="input"><img src="../../assets/icons/email.svg" alt="Email" class="input-icon"><input formControlName="email" placeholder="Email" type="email"></div>
+            <div class="input"><img src="../../assets/icons/role.svg" alt="Роль" class="input-icon">
+              <select formControlName="idRole">
+                <option value="">Выберите роль</option>
+                <option value="1">Администратор</option>
+                <option value="2">Исполнитель</option>
+                <option value="3">Сотрудник</option>
+              </select>
+            </div>
+            @if (registerForm.get('idRole')?.value === '2') {
+                <div class="input"><img src="../../assets/icons/specialization.svg" alt="Род деятельности" class="input-icon"><input formControlName="specialization" placeholder="Род деятельности" type="text"></div>
+                <div class="input"><img src="../../assets/icons/city.svg" alt="Город" class="input-icon"><input formControlName="city" placeholder="Город" type="text"></div>
+            }
+            <div class="input"><img src="../../assets/icons/password.svg" alt="Пароль" class="input-icon"><input formControlName="password" placeholder="Пароль" type="password"></div>
+            <div class="input"><img src="../../assets/icons/password.svg" alt="Пароль" class="input-icon"><input formControlName="confirmPassword" placeholder="Подтвердите пароль" type="password"></div>
+            <div *ngIf="errorMessage" class="error-message">
+              {{ errorMessage }}
+            </div>
+          </section>  
+            <button type="submit" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+        </form>
+      }
+      
+      <div class="divider-line"></div>
+
+    </div>
+</section>

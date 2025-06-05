@@ -1,0 +1,78 @@
+<header>
+    <button (click)="goBack()">
+      <img src="../../assets/undo.svg" alt="Назад" />
+    </button>
+    <img class="logo" src="../../assets/logo.svg" alt="Логотип" />
+  </header>
+  
+  <main>
+    <form (ngSubmit)="saveChanges()" enctype="multipart/form-data" class="user-info-section">
+  
+      <section class="name-section">
+        <div class="photo-section">
+          <img [src]="getPhotoUrl()" alt="Фото" class="user-photo" />
+          <div class="file-upload-wrapper">
+            <label class="file-upload-button">
+              Выбрать фото
+              <input 
+                type="file" 
+                accept="image/*" 
+                (change)="onPhotoSelected($event)"
+                class="file-input"
+              >
+            </label>
+            <button type="button" class="file-delete-button" (click)="removeAvatar()">
+              Удалить фото
+            </button>
+            <span class="file-name" *ngIf="selectedFile">
+              {{ selectedFile.name }}
+            </span>
+          </div>
+        </div>
+        <div class="inputs">
+          <input [(ngModel)]="lastName" name="lastName" placeholder="Введите фамилию.." required />
+          <input [(ngModel)]="firstName" name="firstName" placeholder="Введите имя.." required />
+          <input [(ngModel)]="middleName" name="middleName" placeholder="Введите отчество.." />
+        </div>
+      </section>
+  
+      <div class="divider-line"></div>
+  
+      <section class="contact-section">
+        <div class="inputs">
+          <div class="input-container">
+            <img src="../../assets/icons/email_black.svg" alt="Почта" class="input-icon" />
+            <input [(ngModel)]="user.email" name="email" placeholder="Введите email.." required />
+          </div>
+          <div class="input-container">
+            <img src="../../assets/icons/role_black.svg" alt="Роль" class="input-icon" />
+            <input [value]="user.role" readonly placeholder="Роль пользователя" />
+          </div>
+  
+          <div *ngIf="user.role === 'Исполнитель'" class="inputs">
+            <div class="input-container">
+              <img src="../../assets/icons/specialization_black.svg" alt="Род деятельности" class="input-icon" />
+              <input [(ngModel)]="user.specialization" name="specialization" placeholder="Введите свой род деятельности.." />
+            </div>
+            <div class="input-container">
+              <img src="../../assets/icons/city_black.svg" alt="Город" class="input-icon" />
+              <input [(ngModel)]="user.city" name="city" placeholder="Введите город.." />
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <div class="divider-line"></div>
+  
+      <section class="info-section">
+        <div class="inputs">
+            <textarea [(ngModel)]="user.description" name="description" placeholder="Введите информацию о пользователе.."></textarea>
+        </div>
+      </section>
+  
+      <section class="button-section">
+        <button type="submit" class="save-button">Сохранить</button>
+      </section>
+    </form>
+  </main>
+  

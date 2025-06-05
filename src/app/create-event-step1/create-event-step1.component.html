@@ -1,3 +1,13 @@
+<header>
+    <button (click)="goBack()">
+      <img src="../../assets/undo.svg" alt="Назад" />
+    </button>
+
+    <button class="profile-btn" (click)="goUserProfile()">
+      <img src="../../assets/user_profile.svg" alt="Профиль" />
+    </button>
+</header>
+
 <main>
     <section class="event-list-section">
       <header>
@@ -5,7 +15,7 @@
       </header>
   
       <form (ngSubmit)="nextStep()" #stepOneForm="ngForm" class="events-container">
-        <p class="inter-data-event">ВВЕДИТЕ ДАННЫЕ О МЕРОПРИЯТИИ:</p>
+        <p class="inter-data-event">ВВЕДИТЕ ДАННЫЕ О МЕРОПРИЯТИИ</p>
         <input type="text" [(ngModel)]="title" name="title" placeholder="Название мероприятия" required>
         <input type="date" [(ngModel)]="date" name="date" placeholder="Введите дату проведения мероприятия" required />
         <input type="time" [(ngModel)]="time" name="time" placeholder="Введите время проведения мероприятия" required />
@@ -17,8 +27,10 @@
       </form>
 
       <footer> 
-        <button class="go-to-step1" [class.active]="activeStep === 1">1</button>
-        <button class="go-to-step2" [class.active]="activeStep === 2" [disabled]="!title.trim() || !date || !time.trim()" (click)="nextStep()">2</button>
+        <button class="go-to-step1" [class.active]="activeStep === 1" (click)="navigateTo(1)">1</button>
+        <button class="go-to-step2" [class.active]="activeStep === 2" (click)="navigateTo(2)">2</button>
+        <button class="go-to-step3" [class.active]="activeStep === 3" (click)="navigateTo(3)">3</button>
+        <button class="go-to-step4" [class.active]="activeStep === 4" (click)="navigateTo(4)">4</button>
       </footer>
     </section>
   </main>

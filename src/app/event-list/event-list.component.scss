@@ -1,75 +1,207 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+      
+    img {
+      width: 40px;
+      height: 40px;
+      transition: filter 0.3s ease;
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 45px;
-    min-height: 100vh;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-height: auto;
+  box-sizing: border-box;
+  margin-bottom: 70px;
 }
 
 .event-list-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #B3B1FCB2;
-    padding: 55px 20px;
-    min-width: 635px;
-    min-height: 740px;
-    border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B3B1FCB2;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 680px;     
+  margin: 0 50px;       
+  border-radius: 15px;
 }
 
 .event-list-section header h1 {
-    color: #000000;
-    font-family: 'Geologica-SemiBold';
-    font-size: 25px;
-    margin-bottom: 50px;
-    text-align: center;
+  color: #000000;
+  font-family: 'Geologica-SemiBold';
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .events-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
 }
 
 .event-card {
-    background-color: #fff;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.01);
+}
+
+.delete-btn-wrapper {
+  text-align: right;
+}
+
+.delete-btn {
+  background: none; 
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+      
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  &:hover {
+    transform: scale(1.5);
+  }
 }
 
 .event-title {
-    font-size: 20px;
-    font-family: 'Geologica-SemiBold';
-    margin-bottom: 5px;
-    color: #000000;
+  font-size: 20px;
+  font-family: 'Geologica-SemiBold';
+  margin-bottom: 5px;
+  color: #000000;
+  margin-top: -10px;
 }
 
 .event-date {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Geologica-Regular';
+  color: #000000;
+  font-size: 18px;
+  font-family: 'Geologica-Regular';
 }
 
 .create-event-btn {
-    margin-top: 30px;
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 0.5;
-    border-radius: 50%;
-    background-color: transparent;
-    color: #292D32;
-    border: 2px solid #292D32;
-    cursor: pointer;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 0.5;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #292D32;
+  border: 2px solid #292D32;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
-  
+
 .create-event-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+@media (max-width: 670px) {
+  header {
+    padding: 0.75rem 1rem;
+
+    button img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .event-list-section {
+    padding: 30px 15px;
+    margin: 0 50px;
+  }
+
+  .event-list-section header h1 {
+    font-size: 20px;
+  }
+
+  .event-card {
+    padding: 15px;
+  }
+
+  .delete-btn {
+    img {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .event-title {
+    font-size: 16px;
+  }
+
+  .event-date {
+    font-size: 14px;
+  }
+
+  .create-event-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 450px) {
+  .event-list-section {
+    padding: 20px 20px;
+    margin: 10px 20px;
+  }
+
+  .event-list-section header h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .delete-btn {
+    img {
+      width: 13px;
+      height: 17px;
+    }
+  }
+
+  .event-title {
+    font-size: 14px;
+  }
+
+  .event-date {
+    font-size: 12px;
+  }
+
+  .create-event-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+  }
 }

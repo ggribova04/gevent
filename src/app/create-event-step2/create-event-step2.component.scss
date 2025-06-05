@@ -1,146 +1,446 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+      
+    img {
+      width: 40px;
+      height: 40px;
+      transition: filter 0.3s ease;
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 45px;
-    min-height: 100vh;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-height: auto;
+  box-sizing: border-box;
+  margin-bottom: 70px;
 }
 
 .event-list-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #B3B1FCB2;
-    padding: 55px 20px;
-    min-width: 635px;
-    min-height: 740px;
-    border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B3B1FCB2;
+  padding: 55px 20px;
+  min-width: 635px;
+  min-height: 740px;
+  border-radius: 15px;
 }
 
 .event-list-section header h1 {
-    color: #000000;
-    font-family: 'Geologica-SemiBold';
-    font-size: 25px;
-    margin-bottom: 50px;
-    text-align: center;
+  color: #000000;
+  font-family: 'Geologica-SemiBold';
+  font-size: 25px;
+  text-align: center;
 }
   
 .events-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    margin-left: 150px;
-    margin-top: 100px;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-left: 150px;
+  margin-top: 50px;
+  flex: 1;
 }
 
-.inter-guest {
-    font-family: 'Geologica-SemiBold';
-    font-size: 18px;
+.introductory-text {
+  font-family: 'Geologica-SemiBold';
+  font-size: 18px;
 }
 
-.events-container table {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    padding: 16px;
-    border: 1px solid #E5E5FF;
-    background: #FFF;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: 'Geologica-Light';
-    color: #000000;
-    box-sizing: border-box;
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 0 15px;
+.divider-line {
+  height: 2px;
+  background-color: #CAC9FD;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.events-container table thead {
-    font-family: 'Geologica-Regular';
+.performer-section {
+  background-color: #FFF;
+  width: 100%;
+  max-width: 485px;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+  
+.performers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Geologica-Regular';
+  color: #000000;
+  margin-bottom: 20px;
+    
+  .table-header {
     font-size: 20px;
-    color: #000000;
-    display: block;
-    margin-top: -5px;
-    margin-bottom: 5px;
-}
-
-.events-container table td input {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    border: none;
-    background: #FFF;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: 'Geologica-Regular';
-    color: #797979;
-    box-sizing: border-box;
     text-align: center;
-}
-
-.events-container table td {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    border: none;
-    background: #FFF;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: 'Geologica-Regular';
-    color: #000000;
-    box-sizing: border-box;
+    padding: 15px 0;
+    border-bottom: 1px solid #E5E5FF;
+    font-weight: normal;
+  }
+    
+  .column-headers th {
+    font-size: 14px;
+    font-weight: normal;
     text-align: center;
+    padding: 5px 5px;
+    border-bottom: 1px solid #E5E5FF;
+    color: #6F47B2;
+  }
+
+  .service-name-th {
+    border: 1px solid #E5E5FF;;
+  }
+    
+  .performer-row {
+    border-bottom: 1px solid #E5E5FF;
+
+    td {
+      padding: 10px 5px;
+      vertical-align: middle;
+    }
+      
+    .performer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Geologica-Regular';
+      font-size: 12px;
+      text-align: center;
+
+      .performer-login {
+        color: #797979;
+      }
+    }
+      
+    .service-name {
+      font-size: 12px;
+      text-align: center;
+      border: 1px solid #E5E5FF;
+    }
+      
+    .status-cell {
+      text-align: center;
+    }
+  }
+    
+    .empty-row {
+        td {
+            padding: 15px;
+            text-align: center;
+            color: #797979;
+            font-style: 'Geologica-Regular';
+            border-bottom: 1px solid #CAC9FD;
+        }
+    }
+}
+  
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  background-color: #FFE6E6;
+  color: #D32F2F;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+    
+  &.completed {
+    background-color: #E6FFE6;
+    color: #2E7D32;
+  }
+    
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
-.btn-continue {
-    display: flex;
-    justify-content: center;
-    margin-left: -140px;
-}
+.add-performer-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 19px;
+  margin-bottom: 20px;
+  padding: 0 12px;
+  flex-wrap: wrap;
+        
+  input {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Geologica-Regular';
+    font-size: 14px;
+    min-width: 300px;
+    min-height: 20px;
+  }
 
-.event-list-section button {
+  .add-button {
+    padding: 10px 20px;
     background-color: #6F47B2;
-    color: #FFF;
-    padding: 18px 55px;
-    font-size: 18px;
-    font-family: 'Geologica-Medium';
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    min-width: 241px;
+    font-family: 'Geologica-Regular';
+    font-size: 14px;
+        
+    &:hover {
+      background-color: #573492;
+    }
+  }
 }
 
-.event-list-section button:hover {
+.empty-message {
+  font-style: 'Geologica-Regular';
+  color: #797979;
+  padding: 20px;
+  font-size: 12px;
+}
+
+.search-performer-section {
+  h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-family: 'Geologica-Regular';
+  }
+
+  .search-results {
+    margin-top: 20px;;
+    border-radius: 5px;
+  }
+  
+  .performer-th {
+    border-top: 1px solid #E5E5FF;
+  }
+
+  .add-from-search-button {
+    padding: 5px 10px;
+    background-color: #6F47B2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Geologica-Regular';
+    
+    &:hover {
+      background-color: #573492;
+    }
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 5px;
+    
+    input, select {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Geologica-Regular';
+      font-size: 14px;
+      min-height: 20px;
+    }
+    
+    select {
+      min-width: 150px;
+    }
+
+    input {
+        min-width: 225px;
+    }
+  }
+
+  .search-button {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  
+    img {
+      width: 25px;
+      height: 25px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.next-button {
+  display: flex;
+  justify-content: center;
+  margin-left: -140px;
+}
+
+.next-button button {
+  background-color: #6F47B2;
+  color: #FFF;
+  padding: 18px 55px;
+  font-size: 18px;
+  font-family: 'Geologica-Medium';
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
     background-color: #573492;
+  }
 }
 
-.event-list-section footer {
+@media (max-width: 670px) {
+  header {
+    padding: 0.75rem 1rem;
+
+    button img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .event-list-section {
+    min-width: auto;
+    padding: 40px 40px;
+    min-height: auto;
+    width: 90%;
+    margin: 0 50px;
+  }
+
+  .event-list-section header h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .events-container {
+    margin: 0;
+    align-items: center;
+  }
+
+  .events-container input {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .introductory-text {
+    font-size: 16px;
+  }
+
+  .add-performer-form {
+    align-items: center;
+    justify-content: center;
+
+    .add-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+
+  .next-button {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 0 0;
+  }
+
+  .next-button button {
+    padding: 14px 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
 }
 
-.event-list-section footer button {
-    padding: 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    width: 80px;
-    height: 80px;
-    font-size: 30px;
-    line-height: 0.5;
-    border-radius: 50%;
-    background-color: #F5F5F5;
-    font-family: 'Geologica-Regular';
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    min-width: 0;
-}
+@media (max-width: 450px) {
+  .event-list-section {
+    padding: 20px 20px;
+    margin: 10px 20px;
+  }
 
-.event-list-section footer button.active {
-    font-family: 'Geologica-Bold';
-    background-color: #FFF;
+  .event-list-section header h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .introductory-text {
+    font-size: 14px;
+  }
+
+  .events-container input {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .next-button button {
+    padding: 12px 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+      
+      > * {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  .performers-table {
+    .column-headers th {
+      font-size: 13px;
+      padding: 5px;
+      white-space: nowrap;
+    }
+
+    .performer-row td {
+      padding: 8px 5px;
+    }
+  }
+
+  .add-performer-form {
+    padding: 0 8px;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+          
+    input {
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+          
+    .add-button {
+      padding: 10px;
+      font-size: 13px;
+    }
+  }
 }

@@ -1,0 +1,61 @@
+<header>
+  <button (click)="goBack()">
+    <img src="../../assets/undo.svg" alt="Назад" />
+  </button>
+  <img class="logo" src="../../assets/logo.svg" alt="Логотип" />
+  <button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
+    <img src="../../assets/exit.svg" alt="Выйти">
+  </button>
+</header>
+
+<main>
+  <section class="user-info-section">
+    <header>
+      <button class="edit-button" (click)="goEdit()">
+        <img src="../../assets/edit.svg" alt="Редактировать профиль" />
+      </button>
+    </header>
+
+    <section class="name-section">
+      <img [src]="getPhotoUrl()" alt="Фото" class="user-photo" />
+      <div class="inputs">
+        <input [value]="lastName" readonly placeholder="Фамилия"/>
+        <input [value]="firstName" readonly placeholder="Имя"/>
+        <input [value]="middleName" readonly placeholder="Отчество"/>
+      </div>
+    </section>
+
+    <div class="divider-line"></div>
+
+    <section class="contact-section">
+      <div class="inputs">
+        <div class="input-container">
+          <img src="../../assets/icons/email_black.svg" alt="Почта" class="input-icon">
+          <input [value]="user?.email" readonly placeholder="Тут должен был быть Email.. упс" />
+        </div>
+        <div class="input-container">
+          <img src="../../assets/icons/role_black.svg" alt="Роль пользователя" class="input-icon">
+          <input [value]="user?.role" readonly placeholder="Тут должна была быть роль пользователя.. упс" />
+        </div>
+        <div class="inputs" *ngIf="user?.role === 'Исполнитель'">
+          <div class="input-container">
+            <img src="../../assets/icons/specialization_black.svg" alt="Род деятельности" class="input-icon">
+            <input [value]="user?.specialization" readonly placeholder="Тут должен был быть род деятельности.. упс" />
+          </div>
+          <div class="input-container">
+            <img src="../../assets/icons/city_black.svg" alt="Город" class="input-icon">
+            <input [value]="user?.city" readonly placeholder="Тут должен был быть город.. упс" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-line"></div>
+
+    <section class="info-section">
+      <div class="inputs">
+        <textarea [value]="user?.description" readonly placeholder="Информация о пользователе..."></textarea>
+      </div>
+    </section>
+  </section>
+</main>

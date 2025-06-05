@@ -1,0 +1,14 @@
+<section class="start-page">
+    <img src="../../assets/StartPage/logo_main.svg" alt="Логотип" class="logo">
+    <section class="button-container">
+        <button class="btn" (click)="openModal('login')">ВХОД</button>
+        <button class="btn" (click)="openModal('register')">РЕГИСТРАЦИЯ</button>
+    </section>
+    <img src="../../assets/StartPage/image.svg" alt="Картиночка с праздником" class="image">
+
+    <app-auth-modal 
+        *ngIf="isModalOpen"
+        [mode]="modalMode"
+        (close)="closeModal()">
+    </app-auth-modal>
+</section>
